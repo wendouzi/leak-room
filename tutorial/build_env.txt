@@ -1,0 +1,27 @@
+tensorflow 1.4 环境准备的库：
+Cuda 8.0 , cuDNN v 6.0, python(当前是3.5, 版本可选。)， pip3
+
+1. 卸载之前安装的cuda
+
+sudo apt-get remove cuda
+sudo apt autoremove
+sudo apt clean
+1. 安装cuda 8.0 
+sudo apt-get install cuda-8-0
+
+2.下载cuDNN，安装手顺
+
+sudo cp cuda/include/cudnn.h /usr/local/cuda/include
+sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
+sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
+
+3. 安装python3.5 tensorflow及需要的库
+sudo apt-get install python3-pip python3-dev python-virtualenv
+创建虚拟环境
+virtualenv --system-site-packages -p python3 tensorflow3
+激活虚拟环境
+source ~/tensorflow/bin/activate
+安装pip
+easy_install -U pip
+安装tensorflow
+pip3 install --upgrade tensorflow-gpu
